@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Anschlussplan PV-Überschuss SE8K – WOLF CHA-10</title>
+<style>
+  @page { size: A4 landscape; margin: 8mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, "Liberation Sans", Helvetica, sans-serif; font-size: 8.6pt; color: #111; margin: 0; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  h1 { font-size: 13pt; margin: 0 0 2mm 0; }
+  h2 { font-size: 10pt; margin: 3mm 0 1.2mm 0; border-bottom: 0.4pt solid #888; padding-bottom: 0.6mm; }
+  p { margin: 0.8mm 0; line-height: 1.32; }
+  ul { margin: 0.8mm 0 0.8mm 4.5mm; padding: 0; }
+  li { margin: 0.3mm 0; line-height: 1.3; }
+  table { border-collapse: collapse; width: 100%; margin: 1mm 0 1.5mm 0; }
+  th, td { border: 0.4pt solid #999; padding: 0.7mm 1.2mm; vertical-align: top; text-align: left; }
+  th { background: #e9edf2; font-weight: bold; }
+  td.c, th.c { text-align: center; }
+  .cols { display: flex; gap: 6mm; }
+  .cols > div { flex: 1; min-width: 0; }
+  .warn { background: #fff4e5; border-left: 2.2pt solid #e07000; padding: 1.2mm 2mm; margin: 1.2mm 0; }
+  .small { font-size: 7.6pt; color: #333; }
+  .hdr { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 0.8pt solid #111; margin-bottom: 2mm; padding-bottom: 1mm; }
+  .hdr span { font-size: 8pt; color: #444; }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { font-family: Arial, "Liberation Sans", Helvetica, sans-serif; fill: #111; }
+  .pw { stroke: #111; stroke-width: 2; fill: none; }
+  .bus { stroke: #111; stroke-width: 5; fill: none; }
+  .c230 { stroke: #111; stroke-width: 1.5; fill: none; }
+  .selv { stroke: #e07000; stroke-width: 2.2; fill: none; }
+  .rs485 { stroke: #1f5fbf; stroke-width: 2; stroke-dasharray: 9 5; fill: none; }
+  .radio { stroke: #2e8b57; stroke-width: 2.2; stroke-dasharray: 2 5; stroke-linecap: round; fill: none; }
+  .vl { stroke: #c62828; stroke-width: 3; fill: none; }
+  .rl { stroke: #1565c0; stroke-width: 3; fill: none; }
+  .coil { stroke: #8e24aa; stroke-width: 2.2; fill: none; }
+  .sens { stroke: #777; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+  .new { fill: #fff6d5; stroke: #b8860b; stroke-width: 2; }
+  .ex { fill: #f3f3f3; stroke: #8a8a8a; stroke-width: 1.4; stroke-dasharray: 6 3; }
+  .wolf { fill: #eef4fb; stroke: #34618f; stroke-width: 1.8; }
+  .frame { fill: #fff; stroke: #111; stroke-width: 1.2; }
+  .t { font-size: 13px; }
+  .tb { font-size: 13.5px; font-weight: bold; }
+  .ts { font-size: 11.5px; }
+  .tx { font-size: 10.5px; }
+  .mid { text-anchor: middle; }
+  .end { text-anchor: end; }
+  .or { fill: #c25e00 !important; }
+  .bl { fill: #1f5fbf !important; }
+  .gn { fill: #2e7d4f !important; }
+  .gy { fill: #666 !important; }
+  .rd { fill: #c62828 !important; }
+</style>
+</head>
+<body>
+
+<!-- ===================== BLATT 1: ÜBERSICHTSSCHALTPLAN ===================== -->
+<div class="page">
+<svg viewBox="0 0 1600 1100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111"/>
+    </marker>
+  </defs>
+  <rect x="2" y="2" width="1596" height="1096" fill="none" stroke="#111" stroke-width="1.5"/>
+
+  <!-- Titel -->
+  <text x="20" y="32" style="font-size:21px;font-weight:bold">Übersichtsschaltplan (einpolig) – PV-Überschussnutzung SolarEdge SE8K → WOLF CHA-10 / WW-Speicher</text>
+  <text x="20" y="54" class="t">Stufe 1: Wärmepumpe über PV-Kontakt (WW 50 → 60 °C) · Stufe 2: E-Heizpatrone stufenlos 0–3 kW bis 75 °C (Thermostat im Speicher)</text>
+
+  <!-- Funktionsablauf -->
+  <rect x="720" y="70" width="868" height="222" class="frame"/>
+  <text x="735" y="92" class="tb">Funktionsablauf (Messung am Netzanschlusspunkt −P1)</text>
+  <line x1="728" y1="102" x2="1580" y2="102" stroke="#999"/>
+  <text x="735" y="120" class="ts" style="font-weight:bold">Zustand</text>
+  <text x="858" y="120" class="ts" style="font-weight:bold">PV-Überschuss</text>
+  <text x="1012" y="120" class="ts" style="font-weight:bold">−A1/−K1 → X0 PV/SG1</text>
+  <text x="1180" y="120" class="ts" style="font-weight:bold">WOLF WW-Soll</text>
+  <text x="1318" y="120" class="ts" style="font-weight:bold">−A2 → −E1 Heizpatrone</text>
+  <text x="735" y="142" class="ts">0 Normal</text>
+  <text x="858" y="142" class="ts">&lt; 2,3 kW</text>
+  <text x="1012" y="142" class="ts">offen</text>
+  <text x="1180" y="142" class="ts">50 °C</text>
+  <text x="1318" y="142" class="ts">0 W</text>
+  <text x="735" y="164" class="ts">1 PV-Stufe 1</text>
+  <text x="858" y="164" class="ts">≥ 2,3 kW</text>
+  <text x="1012" y="164" class="ts">geschlossen (min. 30 min)</text>
+  <text x="1180" y="164" class="ts">60 °C (WP lädt)</text>
+  <text x="1318" y="164" class="ts">Restüberschuss 0–3 kW</text>
+  <text x="735" y="186" class="ts">2 PV-Stufe 2</text>
+  <text x="858" y="186" class="ts">WP fertig</text>
+  <text x="1012" y="186" class="ts">geschlossen</text>
+  <text x="1180" y="186" class="ts">60 °C erreicht</text>
+  <text x="1318" y="186" class="ts">0–3 kW stufenlos → 75 °C</text>
+  <text x="735" y="208" class="ts">3 Speicher voll</text>
+  <text x="858" y="208" class="ts">–</text>
+  <text x="1012" y="208" class="ts">–</text>
+  <text x="1180" y="208" class="ts">–</text>
+  <text x="1318" y="208" class="ts">TR 75 °C offen → Einspeisung</text>
+  <line x1="728" y1="218" x2="1580" y2="218" stroke="#999"/>
+  <text x="735" y="238" class="ts">Priorität SolarEdge: Hausverbrauch → −A1 (Wärmepumpe) → −A2 (Heizpatrone) → Einspeisung. Wolke/Netzbezug: −A2 regelt sofort ab.</text>
+  <text x="735" y="258" class="ts">75 °C nur über −E1 im Speicher erreichbar. WOLF-Regelung allein: max. WW-Soll + 20 K (WP027) und durch A14 (WW-Max) begrenzt.</text>
+  <text x="735" y="278" class="ts">EVU-Sperre hat Vorrang vor PV-Anhebung. WOLF-internes E-Heizelement bei PV gesperrt (WP028 = nur WP).</text>
+
+  <!-- Einspeisung -->
+  <rect x="70" y="70" width="160" height="34" class="ex"/>
+  <text x="150" y="92" class="ts mid">Netz / HAK 3/N/PE 400/230 V</text>
+  <line x1="150" y1="104" x2="150" y2="122" class="pw"/>
+  <rect x="70" y="122" width="160" height="40" class="ex"/>
+  <text x="150" y="139" class="t mid">EVU-Zähler</text>
+  <text x="150" y="155" class="ts mid">Bezug / Lieferung</text>
+  <line x1="150" y1="162" x2="150" y2="190" class="pw"/>
+  <rect x="50" y="190" width="200" height="78" class="new"/>
+  <text x="150" y="208" class="tb mid">−P1 SolarEdge Inline</text>
+  <text x="150" y="224" class="t mid">Energy Meter 3~ 65 A</text>
+  <text x="150" y="240" class="ts mid">MTR-240-3PC1-D-A-MW</text>
+  <text x="150" y="258" class="tx mid">Netzanschlusspunkt · Export+Import</text>
+  <line x1="150" y1="268" x2="150" y2="320" class="pw"/>
+  <text x="158" y="300" class="tx">3/N/PE</text>
+
+  <!-- Sammelschiene -->
+  <line x1="40" y1="320" x2="1370" y2="320" class="bus"/>
+  <text x="1000" y="310" class="tb mid">Hauptverteiler / UV – 3/N/PE AC 400/230 V 50 Hz</text>
+
+  <!-- RS485 -->
+  <polyline points="250,229 460,229 460,440" class="rs485"/>
+  <text x="262" y="221" class="ts bl">−W1 RS485 Modbus RTU · J-Y(St)Y 2×2×0,8 · 120 Ω beidseitig</text>
+  <text x="262" y="246" class="tx bl">(alternativ Funk über Home Network)</text>
+
+  <!-- Abgang WR -->
+  <line x1="330" y1="320" x2="330" y2="345" class="pw"/>
+  <rect x="305" y="345" width="50" height="40" class="ex"/>
+  <text x="330" y="370" class="t mid">−F1</text>
+  <text x="362" y="370" class="tx">LS (bestehend)</text>
+  <line x1="330" y1="385" x2="330" y2="440" class="pw"/>
+  <text x="336" y="420" class="tx">3/N/PE</text>
+  <rect x="200" y="440" width="280" height="160" class="ex" style="stroke-dasharray:none;stroke:#555"/>
+  <text x="340" y="462" class="tb mid">−G1 SolarEdge SE8K (bestehend)</text>
+  <text x="340" y="480" class="ts mid">SE8K-RW0TEBEN4 · SetApp · Home Network</text>
+  <text x="212" y="508" class="ts">• RS485-1 (A/B/G): −P1, Modbus-ID 2</text>
+  <text x="212" y="528" class="ts">• Home Network (Funk): −A1, −A2</text>
+  <text x="212" y="548" class="ts">• Smart Energy: Priorität −A1 → −A2</text>
+  <text x="212" y="568" class="ts">• LAN/WLAN: Monitoring, SetApp</text>
+  <text x="212" y="588" class="ts">• Firmware aktuell halten</text>
+  <rect x="20" y="470" width="150" height="70" class="ex"/>
+  <text x="95" y="492" class="t mid" style="font-weight:bold">PV-Generator</text>
+  <text x="95" y="510" class="tx mid">DC · Leistungsoptimierer</text>
+  <text x="95" y="526" class="tx mid">(bestehend)</text>
+  <line x1="170" y1="505" x2="200" y2="505" class="pw"/>
+  <text x="185" y="498" class="tx mid">DC</text>
+  <line x1="340" y1="600" x2="340" y2="640" class="c230" stroke-dasharray="3 3"/>
+  <rect x="240" y="640" width="200" height="40" class="ex"/>
+  <text x="340" y="665" class="ts mid">Router → Monitoring / App</text>
+
+  <!-- Abgang -F4 / -A1 / -K1 -->
+  <line x1="600" y1="320" x2="600" y2="345" class="pw"/>
+  <rect x="575" y="345" width="50" height="40" class="new"/>
+  <text x="600" y="370" class="t mid">−F4</text>
+  <text x="632" y="361" class="tx">FI/LS 1P+N B10</text>
+  <text x="632" y="376" class="tx">30 mA Typ A · neu</text>
+  <line x1="600" y1="385" x2="600" y2="440" class="pw"/>
+  <text x="606" y="422" class="tx">1/N/PE</text>
+  <rect x="520" y="440" width="200" height="100" class="new"/>
+  <text x="620" y="459" class="tb mid">−A1 SolarEdge Home</text>
+  <text x="620" y="475" class="tb mid">Load Controller</text>
+  <text x="620" y="493" class="ts mid">SEM-DCS-R08-00 · NO 8 A</text>
+  <text x="620" y="511" class="ts mid">Modus: SG Ready 1-stufig</text>
+  <text x="620" y="529" class="tx mid">Schwelle ≈ 2,3 kW · min. 30 min</text>
+  <line x1="650" y1="540" x2="650" y2="600" class="c230"/>
+  <text x="656" y="596" class="tx">NO</text>
+  <rect x="560" y="600" width="160" height="100" class="new"/>
+  <text x="640" y="618" class="tb mid">−K1 Koppelrelais</text>
+  <text x="640" y="636" class="tx mid">230 V AC · Kontakt Hartgold</text>
+  <text x="640" y="654" class="tx mid">A1 ← NO (−A1) · A2 → N</text>
+  <text x="640" y="672" class="tx mid">COM (−A1) ← L (−F4)</text>
+  <text x="640" y="690" class="tx mid">11–14 → X0 (SELV)</text>
+
+  <!-- Home Network Funk -->
+  <polyline points="480,560 505,560 505,490 520,490" class="radio"/>
+  <polyline points="505,560 735,560 735,490 750,490" class="radio"/>
+  <text x="662" y="578" class="tx gn">Home Network (Funk)</text>
+
+  <!-- Abgang -F5 / -A2 / -E1 -->
+  <line x1="840" y1="320" x2="840" y2="345" class="pw"/>
+  <rect x="815" y="345" width="50" height="40" class="new"/>
+  <text x="840" y="370" class="t mid">−F5</text>
+  <text x="872" y="361" class="tx">FI/LS 1P+N B16</text>
+  <text x="872" y="376" class="tx">30 mA Typ A · neu</text>
+  <line x1="840" y1="385" x2="840" y2="440" class="pw"/>
+  <text x="846" y="422" class="tx">1/N/PE</text>
+  <rect x="750" y="440" width="190" height="100" class="new"/>
+  <text x="845" y="459" class="tb mid">−A2 SolarEdge Home</text>
+  <text x="845" y="475" class="tb mid">Hot Water Controller</text>
+  <text x="845" y="493" class="ts mid">SMRT-HOT-WTR-30-S2</text>
+  <text x="845" y="511" class="ts mid">stufenlos 0–3 kW (ohmsch)</text>
+  <text x="845" y="529" class="tx mid">Priorität 2 (nach −A1)</text>
+  <polyline points="845,540 845,705 770,705 770,870 800,870" class="pw"/>
+  <text x="852" y="598" class="tx">−W6 NYM-J 3×2,5</text>
+  <text x="852" y="612" class="tx">1/N/PE geregelt</text>
+
+  <!-- SELV zu WOLF X0 -->
+  <polyline points="720,630 1030,630 1030,570 1078,570" class="selv"/>
+  <polyline points="720,670 1050,670 1050,595 1078,595" class="selv"/>
+  <text x="726" y="624" class="tx or">11</text>
+  <text x="726" y="664" class="tx or">14</text>
+  <text x="860" y="654" class="ts or">−W4 J-Y(St)Y 2×2×0,8 · SELV</text>
+  <text x="860" y="692" class="tx or">getrennt von 230-V-Leitungen verlegen</text>
+
+  <!-- Abgang -F2 / WOLF -->
+  <line x1="1200" y1="320" x2="1200" y2="345" class="pw"/>
+  <rect x="1175" y="345" width="50" height="40" class="ex"/>
+  <text x="1200" y="370" class="t mid">−F2</text>
+  <text x="1232" y="361" class="tx">LS lt. WOLF</text>
+  <text x="1232" y="376" class="tx">(bestehend)</text>
+  <line x1="1200" y1="385" x2="1200" y2="440" class="pw"/>
+  <text x="1206" y="422" class="tx">3/N/PE</text>
+  <rect x="1060" y="440" width="280" height="260" class="wolf"/>
+  <text x="1200" y="462" class="tb mid">WOLF CHA-10/400V Monoblock</text>
+  <text x="1200" y="480" class="ts mid">Regelung HCM-4 · Klemmleiste X0</text>
+  <!-- X0 Klemmen -->
+  <rect x="1078" y="508" width="18" height="98" fill="#fff" stroke="#34618f"/>
+  <circle cx="1087" cy="520" r="4" fill="#fff" stroke="#111"/>
+  <circle cx="1087" cy="545" r="4" fill="#fff" stroke="#111"/>
+  <circle cx="1087" cy="570" r="4" fill="#fff" stroke="#e07000" stroke-width="2"/>
+  <circle cx="1087" cy="595" r="4" fill="#fff" stroke="#e07000" stroke-width="2"/>
+  <polyline points="1078,520 1068,520 1068,545 1078,545" stroke="#666" stroke-width="1.6" fill="none"/>
+  <text x="1104" y="524" class="ts">EVU/SG0</text>
+  <text x="1104" y="549" class="ts">GND</text>
+  <text x="1104" y="574" class="ts" style="font-weight:bold">PV/SG1</text>
+  <text x="1104" y="599" class="ts" style="font-weight:bold">GND</text>
+  <text x="1175" y="537" class="tx gy">Brücke / EVU-Kontakt</text>
+  <text x="1175" y="550" class="tx gy">bestehend – nicht ändern</text>
+  <text x="1175" y="587" class="tx or">← neu: PV-Kontakt (−K1)</text>
+  <text x="1074" y="630" class="tx">PV/SG1–GND geschlossen → PV-Anhebung:</text>
+  <text x="1074" y="647" class="tx">WW-Soll 50 °C + WP027 (10 K) = 60 °C</text>
+  <text x="1074" y="664" class="tx">WP028 = nur WP · WP026 = 0 K</text>
+  <text x="1074" y="681" class="tx">Parameter am BM-2, Fachmann-Ebene</text>
+  <line x1="1340" y1="520" x2="1390" y2="520" class="c230" stroke="#34618f"/>
+  <text x="1365" y="512" class="tx mid">eBus</text>
+  <rect x="1390" y="470" width="190" height="112" class="wolf"/>
+  <text x="1485" y="492" class="tb mid">BM-2 Bedienmodul</text>
+  <text x="1485" y="510" class="ts mid">Firmware 3.10</text>
+  <text x="1485" y="530" class="tx mid">WP025 = PV · WP026 = 0 K</text>
+  <text x="1485" y="547" class="tx mid">WP027 = 10 K · WP028 = nur WP</text>
+  <text x="1485" y="564" class="tx mid">WW-Soll 50 °C · A14 ≥ 60 °C</text>
+
+  <!-- WW-Speicher -->
+  <rect x="800" y="740" width="180" height="235" rx="30" fill="#f7fbff" stroke="#555" stroke-width="1.8"/>
+  <text x="890" y="768" class="tb mid">WW-Speicher</text>
+  <text x="890" y="785" class="tx mid">(bestehend)</text>
+  <text x="890" y="801" class="tx mid">zul. Temperatur ≥ 85 °C?</text>
+  <path d="M800,870 h22 l6,-9 l12,18 l12,-18 l12,18 l12,-18 l12,18 l6,-9 h8" stroke="#111" stroke-width="2" fill="none"/>
+  <text x="760" y="838" class="tb end">−E1 E-Heizpatrone</text>
+  <text x="760" y="855" class="tx end">1~ 230 V · ≤ 3,0 kW · ohmsch</text>
+  <text x="760" y="871" class="tx end">Regelthermostat TR = 75 °C</text>
+  <text x="760" y="887" class="tx end">+ STB (Sicherheits-TB)</text>
+  <!-- Mischer -->
+  <line x1="940" y1="740" x2="940" y2="730" stroke="#c62828" stroke-width="2.5"/>
+  <polygon points="928,714 928,730 940,722" fill="#fff" stroke="#111"/>
+  <polygon points="952,714 952,730 940,722" fill="#fff" stroke="#111"/>
+  <line x1="940" y1="714" x2="940" y2="702" stroke="#c62828" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="960" y="726" class="tx">−TV1 ≤ 55 °C</text>
+  <!-- Fühler -->
+  <circle cx="966" cy="815" r="5" fill="#777"/>
+  <text x="954" y="819" class="tx end">SF</text>
+  <polyline points="971,815 1100,815 1100,700" class="sens"/>
+  <text x="992" y="808" class="tx gy">WW-Fühler SF (bestehend)</text>
+  <!-- Wärmetauscher -->
+  <polyline points="980,905 892,905 892,920 962,920 962,935 892,935 892,950 980,950" class="coil"/>
+  <polyline points="1180,700 1180,905 980,905" class="vl"/>
+  <polyline points="1240,700 1240,950 980,950" class="rl"/>
+  <text x="1188" y="760" class="tx rd">VL</text>
+  <text x="1248" y="760" class="tx bl">RL</text>
+  <text x="995" y="972" class="tx">Heizwasser VL/RL WW-Ladung (3-Wege-Ventil)</text>
+  <line x1="830" y1="975" x2="830" y2="992" stroke="#1565c0" stroke-width="2.5" marker-start="url(#arr)"/>
+  <text x="842" y="991" class="tx">KW + Sicherheitsgruppe</text>
+
+  <!-- Hinweise -->
+  <rect x="20" y="705" width="520" height="275" class="frame"/>
+  <text x="32" y="727" class="tb">Wichtige Hinweise</text>
+  <text x="32" y="750" class="ts">• Verbrühschutzmischer −TV1 am WW-Austritt zwingend (≤ 55 °C).</text>
+  <text x="32" y="772" class="ts">• Wasserhärte prüfen: &gt; 15 °dH → WOLF empfiehlt WW ≤ 50 °C</text>
+  <text x="44" y="788" class="ts">(Verkalkung). Dann TR auf 60–65 °C oder Enthärtung.</text>
+  <text x="32" y="810" class="ts">• Speicher, Heizpatrone, Dichtungen für ≥ 75 °C zugelassen?</text>
+  <text x="32" y="832" class="ts">• Trinkwasser-MAG / Sicherheitsventil auf höhere Temp. prüfen.</text>
+  <text x="32" y="854" class="ts">• X0 EVU/SG0–GND unverändert lassen.</text>
+  <text x="32" y="876" class="ts">• −W4 (SELV) getrennt von 230 V, Schirm einseitig auf PE.</text>
+  <text x="32" y="898" class="ts">• −P1 misst am Netzanschlusspunkt (Bezug und Einspeisung).</text>
+  <text x="32" y="920" class="ts">• −A2 nur für ohmsche Heizpatrone ≤ 3,0 kW, 1~ 230 V.</text>
+  <text x="32" y="942" class="ts">• Parameter-Nr. lt. WOLF PU „Wärmepumpe und Photovoltaik“ –</text>
+  <text x="44" y="958" class="ts">bei BM-2 FW 3.10 / HCM-4 vor Ort verifizieren.</text>
+
+  <!-- Legende -->
+  <rect x="20" y="995" width="750" height="95" class="frame"/>
+  <line x1="35" y1="1012" x2="80" y2="1012" class="pw"/><text x="90" y="1016" class="tx">Leistung 230/400 V (einpolig)</text>
+  <line x1="35" y1="1032" x2="80" y2="1032" class="selv"/><text x="90" y="1036" class="tx">Steuerleitung SELV, potentialfrei</text>
+  <line x1="35" y1="1052" x2="80" y2="1052" class="rs485"/><text x="90" y="1056" class="tx">RS485 / Modbus RTU</text>
+  <line x1="35" y1="1072" x2="80" y2="1072" class="radio"/><text x="90" y="1076" class="tx">SolarEdge Home Network (Funk)</text>
+  <line x1="300" y1="1012" x2="322" y2="1012" class="vl"/><line x1="324" y1="1012" x2="345" y2="1012" class="rl"/><text x="355" y="1016" class="tx">Heizwasser VL / RL</text>
+  <line x1="300" y1="1032" x2="345" y2="1032" class="sens"/><text x="355" y="1036" class="tx">Fühlerleitung (bestehend)</text>
+  <line x1="300" y1="1052" x2="345" y2="1052" class="c230"/><text x="355" y="1056" class="tx">Steuerleitung 230 V</text>
+  <rect x="540" y="1004" width="40" height="16" class="new"/><text x="590" y="1016" class="tx">Komponente neu</text>
+  <rect x="540" y="1026" width="40" height="16" class="ex"/><text x="590" y="1038" class="tx">bestehend</text>
+  <rect x="540" y="1048" width="40" height="16" class="wolf"/><text x="590" y="1060" class="tx">WOLF (bestehend)</text>
+  <text x="540" y="1082" class="tx">BMK nach EN IEC 81346-2</text>
+
+  <!-- Schriftfeld -->
+  <rect x="1180" y="985" width="410" height="105" class="frame"/>
+  <line x1="1180" y1="1007" x2="1590" y2="1007" stroke="#999"/>
+  <text x="1190" y="1001" class="ts" style="font-weight:bold">PV-Überschussnutzung EFH – SE8K / WOLF CHA-10 / BM-2</text>
+  <text x="1190" y="1024" class="tx">Zeichnung: Übersichtsschaltplan · Blatt 1 (Details Blatt 2–3)</text>
+  <text x="1190" y="1041" class="tx">Stand: 18.11.2026 · Index A · Vorabzug zur Prüfung</text>
+  <text x="1190" y="1058" class="tx">Bearbeitet: ______________   Geprüft: ______________</text>
+  <text x="1190" y="1075" class="tx">Ausführung nur durch konzessionierte Elektrofachkraft</text>
+</svg>
+</div>
+
+<!-- ===================== BLATT 2 ===================== -->
+<div class="page">
+<div class="hdr"><h1>Blatt 2 – Funktionsbeschreibung, Klemmen- und Kabelliste</h1><span>PV-Überschuss SE8K → WOLF CHA-10 / BM-2 · Stand 18.11.2026 · Index A</span></div>
+<div class="cols">
+<div>
+<h2>1 Konzept</h2>
+<p><b>Ziel:</b> WW-Soll bleibt 50 °C. Bei PV-Überschuss wird der Speicher zusätzlich bis max. 75 °C geladen, damit der Überschuss im Haus bleibt statt ins Netz zu gehen.</p>
+<p><b>Messung:</b> Das SolarEdge Energy Meter −P1 am Netzanschlusspunkt misst Bezug und Einspeisung. Ohne diesen Zähler kennt der SE8K den Überschuss nicht. Alle Smart-Energy-Funktionen setzen ihn voraus.</p>
+<p><b>Stufe 1 – Wärmepumpe (empfohlen):</b> Ab ca. 2,3 kW Überschuss schließt −A1 (Home Load Controller, Modus SG Ready 1-stufig). Über das Koppelrelais −K1 wird der WOLF-Eingang X0 PV/SG1–GND gebrückt. Die CHA hebt das WW-Soll um WP027 = 10 K auf 60 °C an. Die Wärme 50→60 °C kommt so mit COP ≈ 2,5 statt 1,0.</p>
+<p><b>Stufe 2 – E-Heizpatrone:</b> −A2 (Home Hot Water Controller) gibt den jeweils verbleibenden Überschuss stufenlos 0–3 kW an die Heizpatrone −E1. Ihr Regelthermostat (TR = 75 °C) beendet die Ladung, die STB sichert ab. Bei Wolken regelt −A2 sofort ab, so entsteht praktisch kein Netzbezug.</p>
+<div class="warn"><b>Warum nicht nur über die WOLF-Regelung?</b> Die PV-Anhebung WP027 ist auf max. 20 K begrenzt (50 + 20 = 70 °C) und wird zusätzlich durch die WW-Maximaltemperatur A14 gedeckelt. Das WOLF-E-Heizelement sitzt im Heizwasserkreis (Vorlaufgrenze 75 °C). Über den Wärmetauscher werden im Speicher deutlich weniger als 75 °C erreicht. Außerdem schaltet es in Stufen, was bei schwankendem Überschuss Netzbezug verursacht. <b>75 °C sind deshalb nur mit einer Heizpatrone direkt im Speicher und eigener Regelung (−A2) erreichbar.</b></div>
+<p><b>Wechselwirkung:</b> Der WOLF-Fühler SF sieht nach PV-Ladung &gt; 60 °C und fordert keine WP-Ladung an. Erst wenn der Speicher unter 50 °C minus WOLF-Hysterese fällt, lädt die WP wieder normal. Den WOLF-Legionellenschutz nicht abschalten, da die PV-Ladung wetterabhängig ist.</p>
+<p><b>Variante ohne WP-Stufe:</b> −A1/−K1/−F4 entfallen, WP027 = 0 K. Das ist einfacher, braucht aber für 50→60 °C etwa 2,5× mehr PV-Strom.</p>
+
+<h2>2 Kabelliste</h2>
+<table>
+<tr><th>Kabel</th><th>Typ</th><th>Von → Nach</th><th class="c">L*</th><th>Bemerkung</th></tr>
+<tr><td>−W1</td><td>J-Y(St)Y 2×2×0,8</td><td>−P1 → SE8K RS485-1</td><td class="c">10 m</td><td>entfällt bei Funkanbindung über Home Network</td></tr>
+<tr><td>−W2</td><td>NYM-J 3×1,5</td><td>−F4 → −A1</td><td class="c">2 m</td><td>im Verteiler</td></tr>
+<tr><td>−W3</td><td>H07V-K 1,5</td><td>−A1 → −K1</td><td class="c">1 m</td><td>Verdrahtung im Verteiler</td></tr>
+<tr><td>−W4</td><td>J-Y(St)Y 2×2×0,8</td><td>−K1 → WOLF X0</td><td class="c">15 m</td><td>SELV, getrennt von 230 V; Schirm einseitig</td></tr>
+<tr><td>−W5</td><td>NYM-J 3×2,5</td><td>−F5 → −A2</td><td class="c">5 m</td><td>ΔU-Nachweis: Auslegung.xlsx</td></tr>
+<tr><td>−W6</td><td>NYM-J 3×2,5</td><td>−A2 → −E1</td><td class="c">3 m</td><td>Anschluss an −E1 wärmebeständig (z. B. Silikon/H07RN-F)</td></tr>
+</table>
+<p class="small">* Längen sind Annahmen und vor Ort aufzumessen.</p>
+</div>
+<div>
+<h2>3 Klemmenliste</h2>
+<table>
+<tr><th class="c">Nr</th><th>Von</th><th>Nach</th><th>Kabel / Ader</th><th>Funktion</th><th>Spannung</th></tr>
+<tr><td class="c">1</td><td>−F4: L / N</td><td>−A1: L / N</td><td>−W2 · L, N, PE</td><td>Versorgung Load Controller</td><td>230 V AC</td></tr>
+<tr><td class="c">2</td><td>−F4: L</td><td>−A1: COM</td><td>Brücke 1,5 mm²</td><td>L auf Relaiskontakt</td><td>230 V AC</td></tr>
+<tr><td class="c">3</td><td>−A1: NO</td><td>−K1: A1</td><td>−W3</td><td>Spule Koppelrelais</td><td>230 V AC</td></tr>
+<tr><td class="c">4</td><td>−K1: A2</td><td>N-Klemme UV</td><td>−W3 (blau)</td><td>Rückleiter Spule</td><td>230 V AC</td></tr>
+<tr><td class="c">5</td><td>−K1: 11</td><td>WOLF X0: PV/SG1</td><td>−W4 · Paar 1 Ader a</td><td>PV-Anhebung ein</td><td>SELV (WOLF)</td></tr>
+<tr><td class="c">6</td><td>−K1: 14</td><td>WOLF X0: GND</td><td>−W4 · Paar 1 Ader b</td><td>Bezugspotential</td><td>SELV (WOLF)</td></tr>
+<tr><td class="c">7</td><td>Schirm −W4</td><td>PE (Verteilerseite)</td><td>–</td><td>einseitig auflegen</td><td>–</td></tr>
+<tr><td class="c">8</td><td>WOLF X0: EVU/SG0</td><td>WOLF X0: GND</td><td>bestehend</td><td>Brücke bzw. EVU-Kontakt – <b>nicht ändern</b></td><td>SELV</td></tr>
+<tr><td class="c">9</td><td>−F5: L / N</td><td>−A2: L-IN / N-IN / PE</td><td>−W5 · L, N, PE</td><td>Versorgung HWC</td><td>230 V AC</td></tr>
+<tr><td class="c">10</td><td>−A2: L-OUT / N-OUT / PE</td><td>−E1: L / N / PE (über TR + STB)</td><td>−W6 · L, N, PE</td><td>Heizpatrone geregelt 0–3 kW</td><td>230 V AC</td></tr>
+<tr><td class="c">11</td><td>SE8K RS485-1: A / B / G</td><td>−P1: A / B / GND</td><td>−W1 · Paar 1 = A/B, Paar 2 = G</td><td>Modbus RTU, Zähler-ID 2</td><td>SELV</td></tr>
+<tr><td class="c">12</td><td>Schirm −W1</td><td>PE (WR-Seite)</td><td>–</td><td>einseitig auflegen</td><td>–</td></tr>
+<tr><td class="c">13</td><td>SE8K RS485-1</td><td>−P1</td><td>–</td><td>Abschluss 120 Ω an beiden Busenden ein</td><td>–</td></tr>
+<tr><td class="c">14</td><td>WW-Speicher</td><td>Potentialausgleich</td><td>bestehend prüfen</td><td>Schutzpotentialausgleich</td><td>–</td></tr>
+</table>
+<p class="small">Klemmenbezeichnungen von −A1, −A2, −P1 und SE8K nach der jeweils aktuellen Installationsanleitung prüfen. X0-Bezeichnungen nach WOLF-Montageanleitung CHA (Kapitel Elektroanschluss). Die Lage von X0 hängt von der Geräteausführung ab. −K1 kann entfallen, wenn −A1 direkt an X0 geführt wird (lt. SolarEdge-AppNote zulässig). −K1 wird aber für die sichere Trennung 230 V/SELV und für zuverlässiges Schalten kleiner Signalströme empfohlen.</p>
+</div>
+</div>
+</div>
+
+<!-- ===================== BLATT 3 ===================== -->
+<div class="page">
+<div class="hdr"><h1>Blatt 3 – Parametrierung, Inbetriebnahme, Annahmen</h1><span>PV-Überschuss SE8K → WOLF CHA-10 / BM-2 · Stand 18.11.2026 · Index A</span></div>
+<div class="cols">
+<div>
+<h2>4 WOLF BM-2 (FW 3.10) – Fachmann-Ebene</h2>
+<table>
+<tr><th>Par.</th><th>Bezeichnung</th><th>Werk</th><th>Soll</th><th>Bemerkung</th></tr>
+<tr><td>WP025</td><td>Funktion Eingänge SG/PV</td><td>je Gerät</td><td><b>PV</b></td><td>PV/SG1 = PV-Anhebung, EVU/SG0 bleibt EVU-Sperre</td></tr>
+<tr><td>WP026</td><td>Externe Anhebung Heizung</td><td>0 K</td><td>0 K</td><td>optional 1–2 K in der Heizperiode</td></tr>
+<tr><td>WP027</td><td>Externe Anhebung WW</td><td>0 K</td><td><b>10 K</b></td><td>50 → 60 °C; Bereich 0–20 K</td></tr>
+<tr><td>WP028</td><td>WEZ-Management bei PV/SG</td><td>Standard</td><td><b>nur WP</b></td><td>WOLF-E-Heizelement nicht zuschalten</td></tr>
+<tr><td>WP032</td><td>Heizen bei PV/SG</td><td>Ein</td><td>Ein</td><td>unverändert</td></tr>
+<tr><td>WP033</td><td>Kühlen bei PV/SG</td><td>Aus</td><td>Aus</td><td>unverändert</td></tr>
+<tr><td>WP034–036</td><td>Bivalenzpunkte bei PV/SG</td><td>−25/−5/−25 °C</td><td>unverändert</td><td></td></tr>
+<tr><td>A14</td><td>WW-Maximaltemperatur</td><td>Anlage</td><td>≥ 60 °C</td><td>≥ WW-Soll + WP027; nicht auf 75 °C stellen</td></tr>
+<tr><td>–</td><td>WW-Solltemperatur (Benutzer)</td><td>–</td><td>50 °C</td><td>unverändert</td></tr>
+</table>
+<p class="small">Quelle Parameter: WOLF Planungsunterlage „Wärmepumpe und Photovoltaik“ (4801950, 12/2023) und Betriebsanleitung CHA für die Fachkraft. Werkswerte und Bezeichnungen können je nach Softwarestand BM-2/HCM-4 abweichen. Vor Ort ablesen und protokollieren. Falls WP028 fehlt: WOLF-Kundendienst wegen Software-Update kontaktieren (aktuell BM-2 3.30).</p>
+
+<h2>5 SolarEdge (SetApp / mySolarEdge)</h2>
+<table>
+<tr><th>Gerät</th><th>Einstellung</th><th>Wert</th></tr>
+<tr><td>SE8K</td><td>Firmware</td><td>aktuell (über SetApp aktualisieren)</td></tr>
+<tr><td>−P1</td><td>Zählerfunktion / Ort</td><td>Export+Import, Netzanschlusspunkt</td></tr>
+<tr><td>−P1</td><td>Kommunikation</td><td>RS485-1 Modbus (Multi-Device), ID 2 – oder Home Network</td></tr>
+<tr><td>−A1</td><td>Kopplung / Betriebsart</td><td>Home Network · SG Ready 1-stufig (alternativ Relais „Überschuss“)</td></tr>
+<tr><td>−A1</td><td>Aktivierungsleistung</td><td>2,3 kW (= P<sub>WP</sub> 2,0 + 0,3 kW Reserve)</td></tr>
+<tr><td>−A1</td><td>Mindest-Einschaltdauer / Zeitfenster</td><td>30 min / optional 10–16 Uhr</td></tr>
+<tr><td>−A1 / −A2</td><td>Priorität</td><td>1 / 2</td></tr>
+<tr><td>−A2</td><td>Nennleistung Heizpatrone</td><td>3,0 kW (Typenschild −E1)</td></tr>
+<tr><td>−A2</td><td>Modus</td><td>PV-Überschuss automatisch, kein Zeit-Boost aus dem Netz</td></tr>
+</table>
+<p class="small">Menübezeichnungen hängen von der SetApp-/App-Version ab. Maßgeblich sind SolarEdge AppNote „Configure and Operate Load Control Devices (ROW)“ und „Heat Pump Control with the SolarEdge Home Load Controller“.</p>
+</div>
+<div>
+<h2>6 Inbetriebnahme-Checkliste</h2>
+<table>
+<tr><th class="c">Nr</th><th>Prüfschritt</th><th>Sollergebnis</th><th class="c">i.O.</th></tr>
+<tr><td class="c">1</td><td>Erstprüfung −F4/−F5-Stromkreise (OVE E 8101 Teil 6)</td><td>R<sub>iso</sub>, Z<sub>S</sub>, RCD-Auslösung i.O.</td><td></td></tr>
+<tr><td class="c">2</td><td>−P1 in SetApp, Vorzeichen prüfen</td><td>Einspeisung = Export, Bezug = Import</td><td></td></tr>
+<tr><td class="c">3</td><td>−A1/−A2 im Home Network</td><td>gekoppelt, online</td><td></td></tr>
+<tr><td class="c">4</td><td>−A1 manuell EIN (Taste)</td><td>−K1 zieht an; BM-2: PV-Anhebung aktiv, WW-Soll 60 °C</td><td></td></tr>
+<tr><td class="c">5</td><td>−A2 manuell EIN</td><td>Strom −E1 ≈ 13 A (Zange)</td><td></td></tr>
+<tr><td class="c">6</td><td>TR −E1 auf 75 °C, STB unverstellt</td><td>bei 75 °C → 0 A</td><td></td></tr>
+<tr><td class="c">7</td><td>Mischwasser an nächster Zapfstelle</td><td>≤ 55 °C</td><td></td></tr>
+<tr><td class="c">8</td><td>WOLF nach erster 75-°C-Ladung</td><td>keine Stör-/Warnmeldung (WW &gt; A14)</td><td></td></tr>
+<tr><td class="c">9</td><td>Automatikbetrieb an sonnigem Tag</td><td>Zustände 0→1→2→3 wie Blatt 1</td><td></td></tr>
+<tr><td class="c">10</td><td>Parameter- und Messprotokoll</td><td>abgelegt im Anlagenbuch</td><td></td></tr>
+</table>
+
+<h2>7 Annahmen (bitte bestätigen)</h2>
+<ul>
+<li>Wechselrichter: SE8K-RW0TEBEN4 (SetApp, Home-Network-fähig). Bei älterem Gerät ohne SetApp sind −A1/−A2 nicht nutzbar.</li>
+<li>Es ist noch kein SolarEdge Energy Meter vorhanden. Ein vorhandener Zähler mit Funktion Export+Import am Netzanschlusspunkt wird mitbenutzt.</li>
+<li>„FW 3.10“ bezieht sich auf das BM-2. Den HCM-4-Softwarestand bitte ablesen.</li>
+<li>Heizpatrone −E1 sitzt im WW-Speicher, ist 1~ 230 V, ≤ 3,0 kW, ohmsch und hat TR + STB. Gemeint ist nicht das WOLF-interne E-Heizelement.</li>
+<li>Speicher 300 l, ohne Batteriespeicher, ohne weiteren Modbus-Master am SE8K.</li>
+</ul>
+<h2>8 Alternativen</h2>
+<ul>
+<li><b>Heizpatrone 3~ / &gt; 3 kW:</b> Load Controller −A3 mit Schütz −Q1 (nur Ein/Aus, Schwelle ≥ P + 0,3 kW → seltener aktiv) oder my-PV AC•THOR 9s (stufenlos 3~). AC•THOR nutzt Modbus TCP am SE8K, das nur einen TCP-Client zulässt. Kompatibilität vorher prüfen.</li>
+<li><b>Nur WOLF (WP027 = 20 K, WP028 = WP + E-Heizelement):</b> max. 70 °C bzw. A14, stufig. Ziel 75 °C nicht erreichbar.</li>
+</ul>
+</div>
+</div>
+</div>
+
+</body>
+</html>
