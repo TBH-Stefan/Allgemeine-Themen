@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Anschlussplan Huawei MAP0 – 2× LUNA2000-S0 – SmartGuard-63A-T0</title>
+<style>
+  @page { size: A4 landscape; margin: 8mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, "Liberation Sans", Helvetica, sans-serif; font-size: 8.4pt; color: #111; margin: 0; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  h1 { font-size: 13pt; margin: 0 0 2mm 0; }
+  h2 { font-size: 10pt; margin: 2.6mm 0 1.1mm 0; border-bottom: 0.4pt solid #888; padding-bottom: 0.6mm; }
+  h3 { font-size: 8.8pt; margin: 2mm 0 0.8mm 0; }
+  p { margin: 0.8mm 0; line-height: 1.3; }
+  ul, ol { margin: 0.6mm 0 0.8mm 4.5mm; padding: 0; }
+  li { margin: 0.35mm 0; line-height: 1.28; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8mm 0 1.4mm 0; }
+  th, td { border: 0.4pt solid #999; padding: 0.6mm 1.1mm; vertical-align: top; text-align: left; }
+  th { background: #e9edf2; font-weight: bold; }
+  td.c, th.c { text-align: center; }
+  td.grp { background: #f4f6f9; font-weight: bold; }
+  table.kl td:first-child, table.kl td:nth-child(4) { white-space: nowrap; }
+  .cols { display: flex; gap: 6mm; }
+  .cols > div { flex: 1; min-width: 0; }
+  .warn { background: #fff4e5; border-left: 2.2pt solid #e07000; padding: 1.1mm 2mm; margin: 1.2mm 0; }
+  .info { background: #eef4fb; border-left: 2.2pt solid #34618f; padding: 1.1mm 2mm; margin: 1.2mm 0; }
+  .small { font-size: 7.4pt; color: #333; }
+  .q { color: #b45309; font-weight: bold; }
+  .hdr { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 0.8pt solid #111; margin-bottom: 2mm; padding-bottom: 1mm; }
+  .hdr span { font-size: 8pt; color: #444; }
+  svg { width: 100%; height: auto; display: block; }
+  svg text { font-family: Arial, "Liberation Sans", Helvetica, sans-serif; fill: #111; }
+  .ac { stroke: #111; stroke-width: 3.2; fill: none; }
+  .acopt { stroke: #777; stroke-width: 2.4; stroke-dasharray: 8 5; fill: none; }
+  .dc { stroke: #c62828; stroke-width: 2.8; fill: none; }
+  .pv { stroke: #e07000; stroke-width: 2.6; fill: none; }
+  .rs485 { stroke: #1f5fbf; stroke-width: 2.2; stroke-dasharray: 9 5; fill: none; }
+  .bsig { stroke: #8e24aa; stroke-width: 2.2; stroke-dasharray: 6 4; fill: none; }
+  .eth { stroke: #2e7d4f; stroke-width: 2.2; stroke-dasharray: 10 4 2 4; fill: none; }
+  .pe { stroke: #3a9d3a; stroke-width: 2.4; fill: none; }
+  .thin { stroke: #111; stroke-width: 1.6; fill: none; }
+  .new { fill: #fff6d5; stroke: #b8860b; stroke-width: 2; }
+  .ex { fill: #f3f3f3; stroke: #8a8a8a; stroke-width: 1.4; stroke-dasharray: 6 3; }
+  .hw { fill: #eef4fb; stroke: #34618f; stroke-width: 1.8; }
+  .opt { fill: #fff; stroke: #888; stroke-width: 1.4; stroke-dasharray: 5 4; }
+  .frame { fill: #fff; stroke: #111; stroke-width: 1.2; }
+  .t { font-size: 13px; }
+  .tb { font-size: 13.5px; font-weight: bold; }
+  .ts { font-size: 11.5px; }
+  .tx { font-size: 10.5px; }
+  .mid { text-anchor: middle; }
+  .end { text-anchor: end; }
+  .or { fill: #c25e00 !important; }
+  .bl { fill: #1f5fbf !important; }
+  .gn { fill: #2e7d4f !important; }
+  .gy { fill: #666 !important; }
+  .rd { fill: #c62828 !important; }
+  .pu { fill: #8e24aa !important; }
+</style>
+</head>
+<body>
+
+<!-- ===================== BLATT 1: ÜBERSICHTSSCHALTPLAN ===================== -->
+<div class="page">
+<svg viewBox="0 0 1600 1100" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="1596" height="1096" fill="none" stroke="#111" stroke-width="1.5"/>
+
+  <!-- Titel -->
+  <text x="20" y="32" style="font-size:21px;font-weight:bold">Übersichtsschaltplan – Huawei SUN2000-MAP0 · 2× LUNA2000-S0 · SmartGuard-63A-T0 (Whole-Home-Backup)</text>
+  <text x="20" y="54" class="t">3/N/PE 400/230 V · Eigenverbrauch mit Batterie · Inselbetrieb über SmartGuard (≤ 20 ms bei aktivierter „Seamless switchover“) · AC-Leitungen einpolig dargestellt</text>
+
+  <!-- ============ Netzseite ============ -->
+  <rect x="40" y="72" width="260" height="34" class="ex"/>
+  <text x="170" y="94" class="ts mid">Netz / HAK · 3/PEN 400/230 V</text>
+  <line x1="170" y1="106" x2="170" y2="122" class="ac"/>
+  <rect x="40" y="122" width="260" height="40" class="ex"/>
+  <text x="170" y="139" class="t mid">−F0 Vorzählersicherung ≤ 63 A gG</text>
+  <text x="170" y="155" class="tx mid gy">Bestand · Grenze für Whole-Home-Backup</text>
+  <line x1="170" y1="162" x2="170" y2="178" class="ac"/>
+  <rect x="40" y="178" width="260" height="40" class="ex"/>
+  <text x="170" y="195" class="t mid">−P0 EVU-Zähler</text>
+  <text x="170" y="211" class="tx mid gy">Bezug / Lieferung (Bestand)</text>
+  <line x1="170" y1="218" x2="170" y2="234" class="ac"/>
+  <rect x="40" y="234" width="260" height="40" class="new"/>
+  <text x="170" y="251" class="t mid">−X0 PEN-Aufteilung → N + PE</text>
+  <text x="170" y="267" class="tx mid">nur TN-C-S · vor −Q1 (Zählerverteiler)</text>
+  <line x1="170" y1="274" x2="170" y2="292" class="ac"/>
+  <text x="178" y="287" class="tx">3/N/PE</text>
+  <rect x="40" y="292" width="260" height="58" class="new"/>
+  <text x="170" y="310" class="tb mid">−Q1 RCD 4-pol. 63 A</text>
+  <text x="170" y="326" class="ts mid">IΔn 300 mA · Typ A · selektiv [S]</text>
+  <text x="170" y="342" class="tx mid">Huawei-Forderung: FI ≥ 100 mA je MAP0</text>
+  <polyline points="170,350 170,490 380,490" class="ac"/>
+  <text x="180" y="420" class="tx">W1 NYY-J 5×16 mm²</text>
+  <text x="375" y="482" class="tx end">GRID/ATS 63 A</text>
+
+  <!-- ============ Kernpunkte ============ -->
+  <rect x="330" y="70" width="510" height="272" class="frame"/>
+  <text x="342" y="90" class="tb">Kernpunkte – damit die Kombination funktioniert</text>
+  <line x1="336" y1="98" x2="834" y2="98" stroke="#999"/>
+  <text x="342" y="115" class="tx">1  SmartGuard = Netz-/Insel-Umschaltung + EMMA (Energiemanager, Messung Netzanschluss).</text>
+  <text x="342" y="130" class="tx or">    → am MAP0 kein Smart Dongle, kein Smart Power Sensor (Konflikt mit EMMA).</text>
+  <text x="342" y="145" class="tx">2  Whole-Home-Backup nur bei Vorsicherung ≤ 63 A; Σ BACKUP + NON-BACKUP ≤ 63 A.</text>
+  <text x="342" y="160" class="tx or">3  „Seamless switchover“ ist ab Werk AUS → in der App aktivieren (mit MAP0 ≤ 20 ms).</text>
+  <text x="342" y="175" class="tx">4  N von Netz, WR, BACKUP, NON-BACKUP nie außerhalb des SmartGuard verbinden;</text>
+  <text x="342" y="190" class="tx">    keine N-PE-Brücke in −X1/−X2; PE(N) des BACKUP-Ports auf PE-Schiene (Pflicht T0).</text>
+  <text x="342" y="205" class="tx">5  TN-C-S: PEN-Aufteilung vor −Q1; Parameter „Earthing system“ = reale Netzform.</text>
+  <text x="342" y="220" class="tx">6  Vor dem SmartGuard Hauptschalter mit FI (Huawei): IΔn ≥ 100 mA je MAP0.</text>
+  <text x="342" y="235" class="tx">7  Backup-Stromkreise nur hinter RCD 30 mA – im Inselbetrieb schaltet der RCD ab,</text>
+  <text x="342" y="250" class="tx">    LS lösen wegen begrenztem WR-Kurzschlussstrom (200 % / 10 s) ggf. nicht aus.</text>
+  <text x="342" y="265" class="tx">8  Batterie ↔ WR: DC- und Signalleitung je ≤ 10 m; max. 2 Stacks; S0/S1 nie mischen.</text>
+  <text x="342" y="280" class="tx">9  Inselleistung = P_N des MAP0, je Phase ≤ P_N/3; Batterie max. 2 × 5 kW.</text>
+  <text x="342" y="295" class="tx">10 Bypass-Schalter im SmartGuard nur bei Defekt des SmartGuard – im Betrieb AUS.</text>
+  <text x="342" y="310" class="tx">11 IBN: zuerst SmartGuard (EMMA), dann Gerätesuche → MAP0 und beide Stacks.</text>
+  <text x="342" y="325" class="tx or">12 Mit S0-Batterien: Freigabe „nahtlose Umschaltung“ bei Huawei bestätigen lassen.</text>
+
+  <!-- ============ Geräte / FW ============ -->
+  <rect x="860" y="70" width="285" height="110" class="frame"/>
+  <text x="870" y="89" class="ts" style="font-weight:bold">Geräte · FW (lt. Angabe aktuell)</text>
+  <text x="870" y="106" class="tx">−A1 SmartGuard-63A-T0 · V100R024C00SPC104</text>
+  <text x="870" y="121" class="tx">−U1 SUN2000-xK-MAP0 · V200R024C00SPC110</text>
+  <text x="870" y="136" class="tx">−G1/−G2 LUNA2000-5KW-C0 · V100R002C00SPC642</text>
+  <text x="870" y="151" class="tx or">Module LUNA2000-5-E0: 1–3 je Stack ⚠ offen</text>
+  <text x="870" y="166" class="tx">max. 2 Stacks je MAP0 · S0/S1 nicht mischen</text>
+
+  <!-- ============ Router ============ -->
+  <rect x="870" y="190" width="230" height="66" class="ex"/>
+  <text x="985" y="212" class="t mid">−A2 Router (Kunde)</text>
+  <text x="985" y="229" class="tx mid">Internet → FusionSolar-Cloud</text>
+  <text x="985" y="245" class="tx mid">App (Installateur / Betreiber)</text>
+  <polyline points="850,400 850,223 870,223" class="eth"/>
+  <text x="856" y="330" class="tx gn">W10</text>
+  <text x="856" y="394" class="tx">WAN</text>
+
+  <!-- ============ SmartGuard ============ -->
+  <rect x="380" y="400" width="480" height="250" class="hw"/>
+  <text x="395" y="420" class="tb">−A1 SmartGuard-63A-T0</text>
+  <text x="395" y="437" class="tx">FW V100R024C00SPC104 · EMMA integriert · vereinfachte Funktionsdarstellung</text>
+  <!-- Netzbus mit Messung und K1 -->
+  <line x1="380" y1="490" x2="535" y2="490" class="ac"/>
+  <circle cx="410" cy="490" r="8" fill="#fff" stroke="#111" stroke-width="1.6"/>
+  <text x="410" y="476" class="tx mid">Messung</text>
+  <circle cx="440" cy="490" r="3.5" fill="#111"/>
+  <line x1="535" y1="490" x2="565" y2="474" class="ac"/>
+  <line x1="565" y1="490" x2="860" y2="490" class="ac"/>
+  <text x="550" y="466" class="tx mid">K1 Netztrennung</text>
+  <!-- Bypass -->
+  <polyline points="500,490 500,520 600,520 600,490" class="acopt"/>
+  <text x="550" y="536" class="tx mid gy">Bypass (manuell) – AUS</text>
+  <!-- NON-BACKUP über K2 -->
+  <line x1="440" y1="490" x2="440" y2="540" class="ac"/>
+  <line x1="440" y1="540" x2="426" y2="566" class="ac"/>
+  <line x1="440" y1="566" x2="440" y2="650" class="ac"/>
+  <text x="448" y="560" class="tx">K2</text>
+  <!-- N-PE im Inselbetrieb -->
+  <circle cx="740" cy="490" r="3.5" fill="#111"/>
+  <line x1="740" y1="490" x2="740" y2="520" class="thin"/>
+  <line x1="740" y1="520" x2="726" y2="546" class="thin"/>
+  <line x1="740" y1="546" x2="740" y2="560" class="thin"/>
+  <line x1="728" y1="560" x2="752" y2="560" class="pe"/>
+  <line x1="732" y1="565" x2="748" y2="565" class="pe"/>
+  <line x1="736" y1="570" x2="744" y2="570" class="pe"/>
+  <text x="720" y="540" class="tx end">K3 N-PE (Insel)</text>
+  <!-- BACKUP -->
+  <circle cx="820" cy="490" r="3.5" fill="#111"/>
+  <line x1="820" y1="490" x2="820" y2="650" class="ac"/>
+  <!-- Schnittstellen -->
+  <text x="470" y="600" class="tx">Schnittstellen: WLAN-AP (IBN), WAN/LAN 10/100,</text>
+  <text x="470" y="615" class="tx">2× RS485, 2 DI, 2 DO, DG-Port (Generator-Start)</text>
+  <text x="470" y="630" class="tx">Parameter: Earthing system · Seamless switchover</text>
+  <!-- INV1 / INV2 / COM -->
+  <text x="866" y="482" class="tx">INV1 63 A</text>
+  <line x1="860" y1="540" x2="880" y2="540" class="acopt"/>
+  <text x="886" y="544" class="tx gy">INV2 32 A – frei</text>
+  <text x="866" y="592" class="tx">COM Pin 1/2</text>
+  <!-- PE -->
+  <polyline points="380,630 360,630 360,640" class="pe"/>
+  <line x1="348" y1="640" x2="372" y2="640" class="pe"/>
+  <line x1="352" y1="645" x2="368" y2="645" class="pe"/>
+  <line x1="356" y1="650" x2="364" y2="650" class="pe"/>
+  <text x="352" y="664" class="tx end gn">W11 PE 16 mm² → HES</text>
+  <!-- Portbeschriftung unten -->
+  <text x="448" y="668" class="tx gy">NON-BACKUP (opt.)</text>
+  <text x="812" y="668" class="tx end">BACKUP LOAD 63 A</text>
+  <text x="812" y="684" class="tx end">W2 NYY-J 5×16 mm²</text>
+
+  <!-- ============ Q2 + Wechselrichter ============ -->
+  <polyline points="860,490 930,490 930,380 975,380" class="ac"/>
+  <text x="936" y="440" class="tx">W4</text>
+  <rect x="975" y="350" width="120" height="60" class="new"/>
+  <text x="1035" y="372" class="tb mid">−Q2 LS 3p+N</text>
+  <text x="1035" y="388" class="ts mid">16 / 25 / 32 A</text>
+  <text x="1035" y="403" class="tx mid">je Leistungsklasse</text>
+  <line x1="1095" y1="380" x2="1160" y2="380" class="ac"/>
+  <text x="1112" y="372" class="tx">W4</text>
+
+  <!-- PV -->
+  <rect x="1160" y="72" width="300" height="100" class="ex"/>
+  <text x="1175" y="94" class="tb">−G3 PV-Generator</text>
+  <text x="1175" y="112" class="tx">String 1 → PV1 (MPPT1) · String 2 → PV2 (MPPT2)</text>
+  <text x="1175" y="128" class="tx">Stringplan lt. PV-Auslegung (nicht Teil des Plans)</text>
+  <text x="1175" y="144" class="tx">W12 H1Z2Z2-K 1×6 mm² · DC-ÜSS nach Risikobewertung</text>
+  <line x1="1230" y1="172" x2="1230" y2="236" class="pv"/>
+  <line x1="1330" y1="172" x2="1330" y2="236" class="pv"/>
+  <text x="1236" y="208" class="tx">PV1</text>
+  <text x="1336" y="208" class="tx">PV2</text>
+
+  <!-- MAP0 -->
+  <rect x="1160" y="236" width="300" height="234" class="hw"/>
+  <text x="1175" y="260" class="tb">−U1 SUN2000-xK-MAP0</text>
+  <text x="1175" y="278" class="ts">Hybrid-WR 3/N/PE · 5–12 kW (Klasse ⚠ offen)</text>
+  <text x="1175" y="296" class="tx">FW V200R024C00SPC110 · 2 MPPT · DC-Schalter</text>
+  <text x="1175" y="312" class="tx">RCMU integriert · Netzcode Austria</text>
+  <text x="1175" y="328" class="tx or">kein Smart Dongle · kein Smart Power Sensor</text>
+  <text x="1168" y="376" class="tx">AC</text>
+  <text x="1168" y="436" class="tx">COM 18-pol.: Pin 1 485A1 · Pin 3 485B1 · Pin 6 PE</text>
+  <text x="1185" y="462" class="tx">BAT+ / BAT−</text>
+  <text x="1450" y="462" class="tx end">RJ45 Batt.-COM</text>
+
+  <!-- RS485 WR ↔ SmartGuard -->
+  <polyline points="860,600 1130,600 1130,440 1160,440" class="rs485"/>
+  <text x="960" y="592" class="tx bl">W9 RS485 ≤ 50 m</text>
+
+  <!-- ============ Batterien ============ -->
+  <line x1="1200" y1="470" x2="1200" y2="560" class="dc"/>
+  <text x="1206" y="532" class="tx rd">W5</text>
+  <polyline points="1420,470 1420,505 1270,505 1270,560" class="bsig"/>
+  <text x="1300" y="499" class="tx pu">W7</text>
+
+  <rect x="1150" y="560" width="180" height="72" class="hw"/>
+  <text x="1240" y="580" class="tb mid">−G1 LUNA2000 Stack 1</text>
+  <text x="1240" y="596" class="tx mid">Power-Modul LUNA2000-5KW-C0</text>
+  <text x="1240" y="611" class="tx mid">FW V100R002C00SPC642</text>
+  <text x="1240" y="626" class="tx mid">mit Batterieschalter</text>
+  <rect x="1158" y="640" width="164" height="38" class="hw"/>
+  <text x="1240" y="663" class="tx mid">LUNA2000-5-E0 · 5 kWh</text>
+  <rect x="1158" y="684" width="164" height="38" class="opt"/>
+  <text x="1240" y="707" class="tx mid gy">LUNA2000-5-E0 (opt.)</text>
+  <rect x="1158" y="728" width="164" height="38" class="opt"/>
+  <text x="1240" y="751" class="tx mid gy">LUNA2000-5-E0 (opt.)</text>
+  <text x="1240" y="786" class="tx mid or">1–3 Module je Stack ⚠ offen</text>
+
+  <line x1="1330" y1="585" x2="1390" y2="585" class="dc"/>
+  <text x="1360" y="579" class="tx mid rd">W6</text>
+  <line x1="1330" y1="615" x2="1390" y2="615" class="bsig"/>
+  <text x="1360" y="630" class="tx mid pu">W8</text>
+
+  <rect x="1390" y="560" width="180" height="72" class="hw"/>
+  <text x="1480" y="580" class="tb mid">−G2 LUNA2000 Stack 2</text>
+  <text x="1480" y="596" class="tx mid">Power-Modul LUNA2000-5KW-C0</text>
+  <text x="1480" y="611" class="tx mid">FW V100R002C00SPC642</text>
+  <text x="1480" y="626" class="tx mid">mit Batterieschalter</text>
+  <rect x="1398" y="640" width="164" height="38" class="hw"/>
+  <text x="1480" y="663" class="tx mid">LUNA2000-5-E0 · 5 kWh</text>
+  <rect x="1398" y="684" width="164" height="38" class="opt"/>
+  <text x="1480" y="707" class="tx mid gy">LUNA2000-5-E0 (opt.)</text>
+  <rect x="1398" y="728" width="164" height="38" class="opt"/>
+  <text x="1480" y="751" class="tx mid gy">LUNA2000-5-E0 (opt.)</text>
+  <text x="1480" y="786" class="tx mid">Kaskade: DC W6 · Signal W8</text>
+
+  <!-- ============ Lastseite ============ -->
+  <polyline points="440,650 440,680 200,680 200,700" class="acopt"/>
+  <text x="208" y="696" class="tx gy">W3</text>
+  <line x1="820" y1="650" x2="820" y2="700" class="ac"/>
+
+  <!-- X2 Non-Backup -->
+  <rect x="40" y="700" width="320" height="260" class="opt"/>
+  <text x="55" y="722" class="tb">−X2 UV Non-Backup (optional)</text>
+  <text x="55" y="744" class="tx">Große Lasten, die im Inselbetrieb abgeworfen</text>
+  <text x="55" y="759" class="tx">werden; im Netzbetrieb über den SmartGuard</text>
+  <text x="55" y="774" class="tx">versorgt und gemessen.</text>
+  <text x="55" y="796" class="tx">z. B. Wallbox, Wärmepumpe, Sauna,</text>
+  <text x="55" y="811" class="tx">Durchlauferhitzer, E-Herd</text>
+  <text x="55" y="833" class="tx">• eigene RCD/LS (Bestand)</text>
+  <text x="55" y="848" class="tx">• N getrennt von −X1 und von der Netzseite</text>
+  <text x="55" y="863" class="tx">• Σ BACKUP + NON-BACKUP ≤ 63 A</text>
+  <text x="55" y="885" class="tx or">Aufteilung offen ⚠ – hängt von Vorsicherung</text>
+  <text x="55" y="900" class="tx or">und gewünschten Inselverbrauchern ab</text>
+
+  <!-- X1 Backup -->
+  <rect x="400" y="700" width="460" height="260" class="ex"/>
+  <text x="415" y="722" class="tb">−X1 Hausverteiler Backup-Lasten</text>
+  <text x="640" y="722" class="tx gy">(Bestand, anpassen)</text>
+  <text x="415" y="744" class="tx">• RCD 30 mA Typ A vor allen Backup-Stromkreisen (Huawei-Pflicht)</text>
+  <text x="415" y="760" class="tx">• N-Schiene isoliert: keine N-PE-Brücke, N nicht mit −X2/Netz/WR</text>
+  <text x="415" y="776" class="tx">• 5. Ader des BACKUP-Ports (PE(N)) auf die PE-Schiene −X1</text>
+  <text x="415" y="792" class="tx">• Inselbetrieb: je Phase ≤ P_N/3, kurzzeitig 200 % für 10 s</text>
+  <text x="415" y="808" class="tx">• Abschaltung im Inselbetrieb über RCD (LS-Zeiten nicht gesichert)</text>
+  <polyline points="820,700 820,840 480,840" class="ac"/>
+  <line x1="480" y1="840" x2="480" y2="856" class="ac"/>
+  <line x1="625" y1="840" x2="625" y2="856" class="ac"/>
+  <line x1="770" y1="840" x2="770" y2="856" class="ac"/>
+  <rect x="420" y="856" width="120" height="42" class="new"/>
+  <text x="480" y="874" class="tx mid">−F1.1 RCD 40 A</text>
+  <text x="480" y="889" class="tx mid">30 mA Typ A</text>
+  <rect x="565" y="856" width="120" height="42" class="new"/>
+  <text x="625" y="874" class="tx mid">−F1.2 RCD 40 A</text>
+  <text x="625" y="889" class="tx mid">30 mA Typ A</text>
+  <rect x="710" y="856" width="120" height="42" class="new"/>
+  <text x="770" y="874" class="tx mid">−F1.n RCD …</text>
+  <text x="770" y="889" class="tx mid">je Gruppe</text>
+  <line x1="480" y1="898" x2="480" y2="922" class="thin"/>
+  <line x1="625" y1="898" x2="625" y2="922" class="thin"/>
+  <line x1="770" y1="898" x2="770" y2="922" class="thin"/>
+  <text x="630" y="944" class="tx mid">→ Endstromkreise Haus (LS lt. Bestand)</text>
+
+  <!-- ============ Legende ============ -->
+  <rect x="895" y="712" width="240" height="250" class="frame"/>
+  <text x="905" y="731" class="ts" style="font-weight:bold">Legende</text>
+  <line x1="905" y1="748" x2="955" y2="748" class="ac"/><text x="963" y="752" class="tx">AC 3/N/PE (einpolig)</text>
+  <line x1="905" y1="768" x2="955" y2="768" class="acopt"/><text x="963" y="772" class="tx">AC optional / Bypass</text>
+  <line x1="905" y1="788" x2="955" y2="788" class="dc"/><text x="963" y="792" class="tx">DC Batterie BAT+/BAT−</text>
+  <line x1="905" y1="808" x2="955" y2="808" class="pv"/><text x="963" y="812" class="tx">DC PV-String</text>
+  <line x1="905" y1="828" x2="955" y2="828" class="rs485"/><text x="963" y="832" class="tx">RS485 WR ↔ SmartGuard</text>
+  <line x1="905" y1="848" x2="955" y2="848" class="bsig"/><text x="963" y="852" class="tx">Batt.-Signal RS485+Enable</text>
+  <line x1="905" y1="868" x2="955" y2="868" class="eth"/><text x="963" y="872" class="tx">Ethernet</text>
+  <line x1="905" y1="888" x2="955" y2="888" class="pe"/><text x="963" y="892" class="tx">Schutzleiter PE</text>
+  <rect x="905" y="902" width="40" height="14" class="new"/><text x="953" y="913" class="tx">neu / anzupassen</text>
+  <rect x="905" y="922" width="40" height="14" class="hw"/><text x="953" y="933" class="tx">Huawei-Gerät</text>
+  <rect x="905" y="942" width="40" height="14" class="ex"/><text x="953" y="953" class="tx">Bestand</text>
+  <rect x="1050" y="902" width="40" height="14" class="opt"/><text x="1050" y="930" class="tx">optional</text>
+
+  <!-- ============ Inselbetrieb ============ -->
+  <rect x="1150" y="815" width="420" height="160" class="frame"/>
+  <text x="1162" y="834" class="ts" style="font-weight:bold">Inselbetrieb (Netzausfall)</text>
+  <text x="1162" y="852" class="tx">• Umschaltung ≤ 20 ms (Seamless switchover = Enable)</text>
+  <text x="1162" y="867" class="tx">• Dauerleistung ≤ P_N des MAP0, je Phase ≤ P_N/3 (100 % Schieflast)</text>
+  <text x="1162" y="882" class="tx">• Überlast 110 % dauernd · 150 % 5 min · 200 % 10 s</text>
+  <text x="1162" y="897" class="tx">• Batterie je Stack 2,5 kW (1 Modul) bzw. 5 kW (2–3 Module)</text>
+  <text x="1162" y="912" class="tx">• Reserve im Netzbetrieb: Backup power SOC 30 % (20–30 %)</text>
+  <text x="1162" y="927" class="tx">• NON-BACKUP wird abgeworfen; PV versorgt und lädt weiter</text>
+  <text x="1162" y="942" class="tx">• Netzrückkehr: SmartGuard synchronisiert und schaltet zurück</text>
+  <text x="1162" y="957" class="tx gy">Werte lt. Datenblatt MAP0 02-202406 / SmartGuard 04-202311</text>
+
+  <!-- ============ Optionen ============ -->
+  <rect x="40" y="975" width="1125" height="115" class="opt"/>
+  <text x="52" y="994" class="ts" style="font-weight:bold">Optionen (nur bei Bedarf, nicht gezeichnet)</text>
+  <text x="52" y="1013" class="tx">• Vorsicherung &gt; 63 A oder Lasten außerhalb des SmartGuard → Teil-Backup: Smart Power Sensor DTSU666-H am Netzanschlusspunkt, RS485 Kl. 24/25 → SmartGuard 485A2/485B2.</text>
+  <text x="52" y="1030" class="tx">• Notstromaggregat: externe ATS vor GRID/ATS; Startsignal über DG-Port (potentialfrei, ≤ 24 V, 1–100 mA); Generator-Parameter im SmartGuard (Start-/Stopp-SOC, Nennleistung).</text>
+  <text x="52" y="1047" class="tx">• Rundsteuerempfänger / zentraler NA-Schutz nur auf Forderung des Netzbetreibers: DI des SmartGuard bzw. MAP0 DIN1–4 (Pin 8/10/12/14, GND 16) / DIN5 (Pin 18) lt. Handbuch.</text>
+  <text x="52" y="1064" class="tx">• Überspannungsschutz AC Typ 1+2 am Netzeintritt, Typ 2 in −X1; DC-Seite nach Leitungslänge – Risikobewertung nach OVE E 8101.</text>
+  <text x="52" y="1081" class="tx gy">Pin-Nummern lt. Huawei-Handbüchern (MAP0 Ausg. 10, SmartGuard Ausg. 06–09) – vor Ort mit Aufdruck/Handbuch-Ausgabe des Geräts abgleichen.</text>
+
+  <!-- ============ Schriftfeld ============ -->
+  <rect x="1180" y="985" width="410" height="105" class="frame"/>
+  <line x1="1180" y1="1007" x2="1590" y2="1007" stroke="#999"/>
+  <text x="1190" y="1001" class="ts" style="font-weight:bold">Hybrid-PV mit Whole-Home-Backup – Huawei</text>
+  <text x="1190" y="1023" class="tx">MAP0 · 2× LUNA2000-S0 · SmartGuard-63A-T0</text>
+  <text x="1190" y="1039" class="tx">Zeichnung: Übersichtsschaltplan · Blatt 1 von 4</text>
+  <text x="1190" y="1055" class="tx">Stand: 24.11.2026 · Index A · Vorabzug zur Prüfung</text>
+  <text x="1190" y="1071" class="tx">Bearbeitet: ______________   Geprüft: ______________</text>
+  <text x="1190" y="1086" class="tx">Ausführung nur durch konzessionierte Elektrofachkraft</text>
+</svg>
+</div>
+
+<!-- ===================== BLATT 2 ===================== -->
+<div class="page">
+<div class="hdr"><h1>Blatt 2 – Kabel, Schutzorgane, Absicherung, Signalbelegung</h1><span>Huawei MAP0 · 2× LUNA2000-S0 · SmartGuard-63A-T0 · Stand 24.11.2026 · Index A</span></div>
+<div class="cols">
+<div>
+<h2>1 Kabelliste</h2>
+<table class="kl">
+<colgroup><col style="width:7%"><col style="width:26%"><col style="width:28%"><col style="width:8%"><col style="width:31%"></colgroup>
+<tr><th>Kabel</th><th>Typ / Querschnitt</th><th>Von → Nach</th><th class="c">L*</th><th>Bemerkung</th></tr>
+<tr><td>W1</td><td>NYY-J 5×16 mm²</td><td>−Q1 → −A1 GRID/ATS</td><td class="c">5 m</td><td>nach Vorsicherung und Verlegeart; SmartGuard-Klemmen 4–16 mm²</td></tr>
+<tr><td>W2</td><td>NYY-J 5×16 mm²</td><td>−A1 BACKUP LOAD → −X1</td><td class="c">5 m</td><td>5. Ader = PE(N) → PE-Schiene −X1</td></tr>
+<tr><td>W3</td><td>NYY-J 5×… mm²</td><td>−A1 NON-BACKUP → −X2</td><td class="c">–</td><td>optional; Σ BACKUP + NON-BACKUP ≤ 63 A</td></tr>
+<tr><td>W4</td><td>NYY-J 5×4 mm² (≤ 8K)<br>NYY-J 5×6 mm² (10/12K)</td><td>−A1 INV1 → −Q2 → −U1 AC</td><td class="c">10 m</td><td>MAP0-AC-Klemme 4–6 mm²; −Q2 am Abgang SmartGuard</td></tr>
+<tr><td>W5</td><td>H1Z2Z2-K 2× 1×6 mm²</td><td>−U1 BAT+/BAT− → −G1</td><td class="c">≤ 10 m</td><td>alternativ Huawei-Kabel „MAP0-S0/S1 3 m“ (04072543); Polarität prüfen</td></tr>
+<tr><td>W6</td><td>H1Z2Z2-K 2× 1×6 mm²</td><td>−G1 Kaskade B+/B− → −G2</td><td class="c">2 m</td><td>DC-Kaskade der Power-Module</td></tr>
+<tr><td>W7</td><td>Cat 5e S/FTP outdoor</td><td>−U1 RJ45 Batt.-COM → −G1 COM</td><td class="c">≤ 10 m</td><td>Belegung Tab. 4c; Schirm auf PE</td></tr>
+<tr><td>W8</td><td>Cat 5e S/FTP outdoor</td><td>−G1 COM (Kaskade) → −G2 COM (WR-Seite)</td><td class="c">2 m</td><td>1:1; Siebdruck am Power-Modul beachten</td></tr>
+<tr><td>W9</td><td>Cat 5e S/FTP outdoor (1 Paar)</td><td>−U1 COM 18-pol. → −A1 COM</td><td class="c">≤ 50 m</td><td>A/B auf einem verdrillten Paar; Schirm einseitig an MAP0 Pin 6</td></tr>
+<tr><td>W10</td><td>Cat 6</td><td>−A1 WAN → −A2 Router</td><td class="c">–</td><td>DHCP; WLAN/4G nur als Alternative lt. Handbuch</td></tr>
+<tr><td>W11</td><td>H07V-K 16 mm² gn/ge</td><td>−A1 PE → HES</td><td class="c">–</td><td>OT-Kabelschuh M6</td></tr>
+<tr><td>W12</td><td>H1Z2Z2-K 1×6 mm²</td><td>PV-Strings → −U1 PV1/PV2</td><td class="c">–</td><td>nach Stringplan</td></tr>
+</table>
+<p class="small">* Längen sind Annahmen – vor Ort aufmessen. Querschnitte nach OVE E 8101 Teil 5-52 (Verlegeart, Häufung, Umgebungstemperatur) und Spannungsfall bestätigen.</p>
+
+<h2>2 Schutzorgane</h2>
+<table>
+<tr><th>BMK</th><th>Gerät</th><th>Bemessung</th><th>Begründung</th></tr>
+<tr><td>−F0</td><td>Vorzählersicherung (Bestand)</td><td>≤ 63 A gG</td><td>GRID-Port 63 A → Grenze für Whole-Home-Backup</td></tr>
+<tr><td>−Q1</td><td>RCD 4-pol. 63 A, Typ A, selektiv [S]</td><td>IΔn 300 mA</td><td>Huawei: Hauptschalter mit FI-Funktion vor dem SmartGuard, IΔn ≥ 100 mA je MAP0; selektiv zu 30 mA</td></tr>
+<tr><td>−Q2</td><td>LS 3-pol.+N, Char. B/C</td><td>Abschn. 3</td><td>MAP0-Handbuch: dreiphasig, ≥ 415 V AC; kein RCD nötig (RCMU integriert), falls doch: IΔn ≥ 300 mA</td></tr>
+<tr><td>−F1.x<br>−F2.x</td><td>RCD 4-pol. 40 A, 30 mA, Typ A</td><td>je Gruppe in −X1 / −X2</td><td>Huawei-Pflicht vor Backup-Lasten (TN-S/TN-C-S/TT); Abschaltung im Inselbetrieb</td></tr>
+</table>
+</div>
+
+<div>
+<h2>3 Absicherung je Leistungsklasse MAP0 <span class="q">⚠ Klasse offen</span></h2>
+<table>
+<tr><th>Typ</th><th class="c">P<sub>N</sub></th><th class="c">S<sub>max</sub></th><th class="c">I<sub>max</sub> 400 V</th><th class="c">−Q2</th><th class="c">W4</th><th class="c">Insel je Phase</th></tr>
+<tr><td>SUN2000-5K-MAP0</td><td class="c">5 kW</td><td class="c">5,5 kVA</td><td class="c">7,9 A</td><td class="c">16 A</td><td class="c">5×4 mm²</td><td class="c">1,67 kW</td></tr>
+<tr><td>SUN2000-6K-MAP0</td><td class="c">6 kW</td><td class="c">6,6 kVA</td><td class="c">9,5 A</td><td class="c">16 A</td><td class="c">5×4 mm²</td><td class="c">2,0 kW</td></tr>
+<tr><td>SUN2000-8K-MAP0</td><td class="c">8 kW</td><td class="c">8,8 kVA</td><td class="c">12,7 A</td><td class="c">25 A ⚠</td><td class="c">5×4 mm²</td><td class="c">2,67 kW</td></tr>
+<tr><td>SUN2000-10K-MAP0</td><td class="c">10 kW</td><td class="c">11 kVA</td><td class="c">15,9 A</td><td class="c">32 A</td><td class="c">5×6 mm²</td><td class="c">3,33 kW</td></tr>
+<tr><td>SUN2000-12K-MAP0</td><td class="c">12 kW</td><td class="c">13,2 kVA</td><td class="c">19,1 A</td><td class="c">32 A</td><td class="c">5×6 mm²</td><td class="c">4,0 kW</td></tr>
+</table>
+<p class="small">I<sub>max</sub> aus S<sub>max</sub> berechnet (12K lt. Datenblatt). −Q2 für 5/6K und 10/12K lt. MAP0-Handbuch, 8K nicht bestätigt (20 oder 25 A). Batterie je Stack 2,5 kW (1 Modul) bzw. 5 kW (2–3 Module).</p>
+
+<h2>4 Signalbelegung <span class="small">(lt. Huawei-Handbuch; Aufdruck am Gerät hat Vorrang)</span></h2>
+<h3>4a −U1 MAP0, COM-Klemme 18-polig</h3>
+<table>
+<tr><th class="c">Pin</th><th>Signal</th><th>Anschluss</th></tr>
+<tr><td class="c">1</td><td>485A1 (RS485 A+)</td><td>→ −A1 COM Pin 1 „RS485A1_INV“</td></tr>
+<tr><td class="c">3</td><td>485B1 (RS485 B−)</td><td>→ −A1 COM Pin 2 „RS485B1_INV“</td></tr>
+<tr><td class="c">6</td><td>PE</td><td>Schirm W9</td></tr>
+<tr><td class="c">11 / 13</td><td>485A2 / 485B2</td><td><b>nicht belegen</b> (Smart Power Sensor nur ohne SmartGuard)</td></tr>
+<tr><td class="c">8/10/12/14 · 16</td><td>DIN1–4 · GND</td><td>Rundsteuerempfänger – nur auf Forderung des Netzbetreibers</td></tr>
+<tr><td class="c">18 · 16</td><td>DIN5 · GND</td><td>zentraler NA-Schutz – nur auf Forderung</td></tr>
+</table>
+<h3>4b −A1 SmartGuard, COM-Klemme 14-polig</h3>
+<table>
+<tr><th class="c">Pin</th><th>Signal</th><th>Anschluss</th></tr>
+<tr><td class="c">1</td><td>RS485A1_INV</td><td>← MAP0 Pin 1 (485A1)</td></tr>
+<tr><td class="c">2</td><td>RS485B1_INV</td><td>← MAP0 Pin 3 (485B1)</td></tr>
+<tr><td class="c">lt. Tab.</td><td>485A2 / 485B2</td><td>nur Teil-Backup: DTSU666-H Kl. 24 (A) / 25 (B)</td></tr>
+<tr><td class="c">lt. Tab.</td><td>DI / DO / DG</td><td>Rundsteuerung, SG Ready, Generatorstart – Pin-Nr. aus Tabelle „Port Definitions“ der Handbuch-Ausgabe</td></tr>
+</table>
+<h3>4c Batterie-Signal W7: −U1 RJ45 → LUNA-COM (W8 Kaskade 1:1)</h3>
+<table>
+<tr><th class="c">RJ45 (T568B)</th><th>Ader</th><th>Signal</th><th class="c">LUNA COM</th></tr>
+<tr><td class="c">1</td><td>ws/or</td><td>485A (RS485 A+)</td><td class="c">Pin 4</td></tr>
+<tr><td class="c">2</td><td>or</td><td>485B (RS485 B−)</td><td class="c">Pin 6</td></tr>
+<tr><td class="c">7</td><td>ws/br</td><td>Enable− (GND)</td><td class="c">Pin 2</td></tr>
+<tr><td class="c">8</td><td>br</td><td>Enable+</td><td class="c">Pin 3</td></tr>
+<tr><td class="c">Schirm</td><td>–</td><td>PE</td><td class="c">Pin 1</td></tr>
+</table>
+<p class="small">LUNA-COM: rechte Seite → WR, linke Seite → Kaskade (Siebdruck). RJ45-Pins für T568B, Aderfarben lt. MAP0-Handbuch – abgleichen.</p>
+</div>
+</div>
+</div>
+
+<!-- ===================== BLATT 3 ===================== -->
+<div class="page">
+<div class="hdr"><h1>Blatt 3 – Parametrierung (FusionSolar) und Inbetriebnahme</h1><span>Huawei MAP0 · 2× LUNA2000-S0 · SmartGuard-63A-T0 · Stand 24.11.2026 · Index A</span></div>
+<div class="cols">
+<div>
+<h2>5 Parametrierung – FusionSolar-App, Installateurzugang</h2>
+<table>
+<tr><th>Gerät</th><th>Parameter (App, EN)</th><th>Einstellung</th><th>Hinweis</th></tr>
+<tr><td class="grp" rowspan="9">−A1 SmartGuard (EMMA)</td><td>Grid code</td><td>Austria</td><td>gleicher Code am MAP0; TOR Erzeuger Typ A</td></tr>
+<tr><td>Earthing system</td><td>TN-C-S (bzw. TT)</td><td>muss zur Verdrahtung passen; Änderung → Neustart</td></tr>
+<tr><td>Seamless switchover</td><td><b>Enable</b></td><td>Werkseinstellung Disable → sonst kurzer Ausfall bei Netzfehler</td></tr>
+<tr><td>Backup power SOC</td><td>30 % (20–30 %)</td><td>Reserve, die im Netzbetrieb nicht entladen wird</td></tr>
+<tr><td>Backup time warning threshold</td><td>30 min (5–60)</td><td>Warnung zur Restlaufzeit im Inselbetrieb</td></tr>
+<tr><td>Generator</td><td>nicht vorhanden</td><td>nur mit ATS/DG-Port (Start-/Stopp-SOC, Nennleistung, max. 80 %)</td></tr>
+<tr><td>Grid-connection point control</td><td>lt. Netzzugangsvertrag</td><td>Einspeisebegrenzung, z. B. unbegrenzt / x kW / 0 kW <span class="q">⚠</span></td></tr>
+<tr><td>Device search</td><td>MAP0 + 2 Stacks</td><td>fehlt ein Gerät → Polung W9 bzw. W7/W8 prüfen</td></tr>
+<tr><td>Network</td><td>WAN: DHCP</td><td>Anlage im Installateurkonto anlegen, Betreiberkonto verknüpfen</td></tr>
+<tr><td class="grp" rowspan="5">−U1 MAP0</td><td>Grid code</td><td>Austria</td><td>Konformitätserklärung TOR Erzeuger Typ A beilegen</td></tr>
+<tr><td>Output mode</td><td>Three-phase four-wire</td><td>3W/N+PE</td></tr>
+<tr><td>Reactive power control</td><td>lt. Netzbetreiber</td><td>z. B. Q(U)-Kennlinie nach TOR Erzeuger <span class="q">⚠</span></td></tr>
+<tr><td>Off-grid mode</td><td>Enable (falls angezeigt)</td><td>Umschaltung selbst führt der SmartGuard aus</td></tr>
+<tr><td>Smart Dongle / Power Meter</td><td>keiner</td><td>Smart Dongle nicht stecken, kein Meter an Pin 11/13</td></tr>
+<tr><td class="grp" rowspan="5">−G1/−G2 LUNA (Battery control)</td><td>Working mode</td><td>Maximum self-consumption</td><td>TOU nur bei Zeittarif</td></tr>
+<tr><td>Charge from grid</td><td>Disable</td><td>bei TOU ggf. Enable mit Leistungsgrenze</td></tr>
+<tr><td>End-of-charge SOC</td><td>100 %</td><td>–</td></tr>
+<tr><td>End-of-discharge SOC</td><td>15 % (IBN) → 5 % (Betrieb)</td><td>FW-Upgrade braucht SOC ≥ 10 %</td></tr>
+<tr><td>Max. charge / discharge power</td><td>Maximum</td><td>2 × 5 kW (1 Modul je Stack: 2 × 2,5 kW)</td></tr>
+</table>
+<p class="small">Englische App-Begriffe, damit sie in jeder Sprachversion eindeutig zuordenbar sind. Menüpfade und Bezeichnungen ändern sich mit App- und FW-Version.</p>
+</div>
+
+<div>
+<h2>6 Inbetriebnahme – Reihenfolge</h2>
+<ol>
+<li><b>Sichtprüfung:</b> Anzugsmomente lt. Handbuch, DC-Polarität W5/W6 (Verpolung schädigt die Batterie), Drehfeld an GRID und INV1 gleichsinnig rechts.</li>
+<li><b>Isolationsmessung</b> der Verbraucherstromkreise vor dem Anschluss an BACKUP; SmartGuard und WR dabei abklemmen bzw. nicht mit Prüfspannung beaufschlagen.</li>
+<li><b>Ausgangszustand:</b> Bypass-Schalter AUS, −Q2 AUS, DC-Schalter −U1 AUS, Batterieschalter −G1/−G2 AUS.</li>
+<li>−F0 und −Q1 EIN → SmartGuard startet (LED-Status lt. Handbuch).</li>
+<li>Batterieschalter −G1 und −G2 EIN → −Q2 EIN → DC-Schalter −U1 EIN (Huawei-Reihenfolge Batterie → AC → DC).</li>
+<li><b>FusionSolar-App</b> mit Installateurkonto: Inbetriebnahme → WLAN des SmartGuard (QR-Code am Typenschild) → Assistent: Netzcode, Uhrzeit, Erdungssystem, Gerätesuche (MAP0 + 2 Stacks), Netzwerk (WAN), Anlage anlegen.</li>
+<li>Parameter lt. Abschnitt 5 setzen; FW-Hinweise in der App prüfen (Upgrade nur bei SOC ≥ 10 %).</li>
+<li><b>Netzbetrieb prüfen:</b> Vorzeichen von Bezug und Einspeisung am Netzanschlusspunkt, Laden und Entladen beider Stacks, Phasenleistungen plausibel.</li>
+<li><b>Inseltest:</b> −Q1 AUS → Umschaltung ohne spürbare Unterbrechung, Spannung je Phase in −X1, RCD-Auslöseprüfung im Inselbetrieb, Lastsprung (z. B. Wasserkocher). −Q1 EIN → Synchronisation und Rückschaltung.</li>
+<li><b>Dokumentation:</b> Prüfbefund nach OVE E 8101, Fertigstellungsmeldung an den Netzbetreiber inkl. Inselbetriebsfähigkeit und Huawei-Konformitätserklärung (TOR Erzeuger Typ A), Einschulung des Betreibers (Backup-SOC, Bypass, Verhalten bei Netzausfall).</li>
+</ol>
+
+<h2>7 Typische Fehler bei dieser Kombination</h2>
+<table>
+<tr><th>Fehler</th><th>Folge</th></tr>
+<tr><td>Smart Dongle am MAP0 stecken gelassen</td><td>Kommunikationsfehler mit dem EMMA im SmartGuard</td></tr>
+<tr><td><i>Seamless switchover</i> nicht aktiviert</td><td>kurzer Stromausfall bei jedem Netzfehler</td></tr>
+<tr><td>N-PE-Brücke im bestehenden Verteiler belassen</td><td>Fehlauslösung −Q1, unzulässige N-Verbindung</td></tr>
+<tr><td>RS485 A/B vertauscht (W9)</td><td>Gerätesuche findet den MAP0 nicht</td></tr>
+<tr><td>W8 auf der falschen COM-Seite der LUNA</td><td>Stack 2 wird nicht erkannt</td></tr>
+<tr><td>Batterie-SOC &lt; 10 %</td><td>FW-Upgrade bzw. IBN blockiert</td></tr>
+<tr><td>Große Lasten am BACKUP-Port</td><td>Überlast im Inselbetrieb (je Phase ≤ P<sub>N</sub>/3)</td></tr>
+<tr><td>Erdungssystem im SmartGuard falsch</td><td>keine bzw. doppelte N-PE-Verbindung im Inselbetrieb</td></tr>
+</table>
+</div>
+</div>
+</div>
+
+<!-- ===================== BLATT 4 ===================== -->
+<div class="page">
+<div class="hdr"><h1>Blatt 4 – Erdungskonzept, offene Fragen, Annahmen, Quellen</h1><span>Huawei MAP0 · 2× LUNA2000-S0 · SmartGuard-63A-T0 · Stand 24.11.2026 · Index A</span></div>
+<div class="cols">
+<div>
+<h2>8 Erdungskonzept und Schutz im Inselbetrieb</h2>
+<table>
+<tr><th style="width:50%">TN-C-S (Annahme, „Nullung“)</th><th>TT</th></tr>
+<tr><td>• PEN-Aufteilung im Zählerverteiler vor −Q1, ab dort 5-Leiter.<br>• SmartGuard: <i>Earthing system</i> = TN-C-S.<br>• −X1/−X2: N-Schiene isoliert, bestehende N-PE-Brücke entfernen (sonst fließen N-Ströme über PE und −Q1 löst aus).<br>• PE(N) des BACKUP-Ports auf PE-Schiene −X1; im Inselbetrieb stellt der SmartGuard die N-PE-Verbindung her.</td>
+<td>• SmartGuard: <i>Earthing system</i> = TT.<br>• Spannung N–PE &lt; 30 V (Huawei).<br>• −Q1 übernimmt den Fehlerschutz: R<sub>A</sub> ≤ 50 V / 0,3 A = 166 Ω, Messung dokumentieren.<br>• PE(N) des BACKUP-Ports ebenfalls auf PE-Schiene −X1.</td></tr>
+</table>
+<div class="warn"><b>Für beide Netzformen:</b> Die N-Leiter von Netz, WR, BACKUP und NON-BACKUP dürfen außerhalb des SmartGuard nicht verbunden sein. Im Inselbetrieb ist der Kurzschlussstrom des MAP0 begrenzt (200 % für 10 s), die LS-Abschaltzeiten sind daher nicht gesichert. Der Fehlerschutz erfolgt über RCD 30 mA und ist durch eine RCD-Prüfung im Inselbetrieb nachzuweisen (OVE E 8101 Teil 551 / Teil 6). Eine Änderung von <i>Earthing system</i> startet den SmartGuard neu, die Backup-Lasten sind dabei kurz stromlos.</div>
+
+<h2>9 Offene Fragen (für die Ausführungsfreigabe)</h2>
+<table>
+<tr><th class="c">Nr</th><th>Frage</th><th>Auswirkung</th></tr>
+<tr><td class="c">1</td><td>Leistungsklasse des MAP0 (5/6/8/10/12K)?</td><td>−Q2, W4, Inselleistung</td></tr>
+<tr><td class="c">2</td><td>Anzahl LUNA2000-5-E0 je Stack (1–3), beide Stacks gleich bestückt?</td><td>Kapazität 10–30 kWh, Leistung 2 × 2,5 bzw. 2 × 5 kW</td></tr>
+<tr><td class="c">3</td><td>Netzform TN-C-S oder TT? Wo liegt die PEN-Aufteilung?</td><td><i>Earthing system</i>, Umbau N/PE im Verteiler</td></tr>
+<tr><td class="c">4</td><td>Vorsicherung bzw. Hausanschluss in A?</td><td>≤ 63 A: Whole-Home; &gt; 63 A: Teil-Backup + DTSU666-H</td></tr>
+<tr><td class="c">5</td><td>Große Lasten vorhanden (WP, Wallbox, Durchlauferhitzer, Sauna, E-Herd)? Welche müssen im Inselbetrieb laufen?</td><td>Aufteilung BACKUP / NON-BACKUP, Überlast</td></tr>
+<tr><td class="c">6</td><td>Vorgaben des Netzbetreibers: Einspeiselimit, Blindleistungsverfahren, Rundsteuerempfänger, zentraler NA-Schutz, Meldung des Inselbetriebs?</td><td>Parameter, zusätzliche Signalleitungen</td></tr>
+<tr><td class="c">7</td><td>LAN-Kabel vom SmartGuard zum Router möglich?</td><td>W10, sonst WLAN/4G</td></tr>
+<tr><td class="c">8</td><td>Notstromaggregat geplant?</td><td>ATS, DG-Port, Generator-Parameter</td></tr>
+<tr><td class="c">9</td><td>Ist am MAP0 schon ein Smart Dongle oder Smart Power Sensor verbaut? Gibt es bereits einen FI vor dem Hauptverteiler?</td><td>Rückbau, Umverdrahtung, −Q1</td></tr>
+<tr><td class="c">10</td><td>Montageorte: Batterie–WR ≤ 10 m und SmartGuard–WR ≤ 50 m einhaltbar?</td><td>Kabelwege, ggf. andere Montage</td></tr>
+<tr><td class="c">11</td><td>Zeitabhängiger Stromtarif vorhanden?</td><td><i>Working mode</i> TOU, <i>Charge from grid</i></td></tr>
+</table>
+</div>
+
+<div>
+<h2>10 Annahmen dieses Plans</h2>
+<ul>
+<li>TN-C-S mit PEN-Aufteilung im Zählerverteiler, Vorsicherung ≤ 63 A → Whole-Home-Backup.</li>
+<li>Ein MAP0 (5–12 kW) an INV1, INV2 frei (Portzuordnung lt. Handbuch-Tabelle bestätigen).</li>
+<li>Zwei LUNA2000-S0-Stacks mit Power-Modul LUNA2000-5KW-C0 und je 1–3 Modulen LUNA2000-5-E0.</li>
+<li>Kein Generator, kein Rundsteuerempfänger, kein zentraler NA-Schutz.</li>
+<li>Internet über LAN am WAN-Port des SmartGuard.</li>
+<li>FW-Stände lt. Angabe aktuell; die Kombination ist vor der IBN im Huawei-Versionsmapping zu prüfen.</li>
+</ul>
+
+<h2>11 Hinweise zur Belastbarkeit</h2>
+<div class="info">Die Angaben stammen aus Huawei-Handbüchern, Datenblättern und Kurzanleitungen (Ausgaben 2024–2026), recherchiert über die Websuche. Die Handbuch-PDFs selbst waren aus der Arbeitsumgebung nicht abrufbar. <b>Pin-Belegungen, Portzuordnung INV1/INV2 und Parameterbezeichnungen vor der Ausführung mit der aktuellen Handbuch-Ausgabe abgleichen.</b></div>
+<div class="warn"><b>Nicht bestätigt:</b> Huawei nennt auf der SmartGuard-Produktseite die LUNA2000-S1 als empfohlene Batterie. Die LUNA2000-S0 ist für den MAP0 freigegeben (Datenblatt 02-202406), für das nahtlose Umschalten mit S0 fehlt aber eine ausdrückliche Aussage. Vor der Ausführung beim Huawei-Support bzw. Großhändler bestätigen lassen.</div>
+
+<h2>12 Quellen (Huawei)</h2>
+<ul class="small">
+<li>SmartGuard-63A-(T0, AUT0) User Manual, Ausgabe 06 (2025-07-25) bis 09 (2026-03-10); Datenblatt SmartGuard-63A-T0/AUT0, Version 04-202311 / 01-202411.</li>
+<li>Smart Guard Networking Commissioning Manual (2026-06-30), Abschnitt Backup Power Settings.</li>
+<li>Residential Smart PV Solution Quick Guide (Three-Phase PV+ESS Scenario + SmartGuard Networking).</li>
+<li>SUN2000-(5K-12K)-MAP0 Series User Manual, Ausgabe 10 (2025-12-30); Datenblatt SUN2000-5/6/8/10/12K-MAP0, Version 02-202406.</li>
+<li>LUNA2000-(5-30)-S0 User Manual (Ausgabe 17/18, 2024) und Quick Guide.</li>
+<li>Huawei Digital Power Schweiz: Anleitung EMMA und SmartGuard (2025), Anleitung Batterie und Backup.</li>
+<li>Declaration of Compliance and Compatibility SmartGuard-63A-T0, Austria TOR-A (für M1/MB0; Fassung für MAP0 anfordern).</li>
+</ul>
+
+<h2>13 Normen und Regeln (Österreich)</h2>
+<ul class="small">
+<li>OVE E 8101 – Errichtung von Niederspannungsanlagen, insbesondere Teil 4-41, 4-443, 5-52, 5-534, 551 und Teil 6 (Prüfung).</li>
+<li>TOR Erzeuger Typ A (E-Control) – Netzcode, Blindleistung, Wirkleistungsbegrenzung.</li>
+<li>Vorgaben und Netzzugangsvertrag des zuständigen Netzbetreibers.</li>
+</ul>
+</div>
+</div>
+</div>
+
+</body>
+</html>
