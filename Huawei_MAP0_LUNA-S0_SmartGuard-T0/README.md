@@ -9,7 +9,9 @@ Der SmartGuard übernimmt die Netz-/Inselumschaltung (≤ 20 ms mit MAP0), das E
 | `Anschlussplan_Huawei_MAP0_2xLUNA-S0_SmartGuard-T0.pdf` | Blatt 1: Übersichtsschaltplan · Blatt 2: Kabelliste, Schutzorgane, Absicherung je Leistungsklasse, Signalbelegung · Blatt 3: Parameter (FusionSolar), IBN-Reihenfolge, typische Fehler · Blatt 4: Erdungskonzept TN-C-S/TT, offene Fragen, Annahmen, Quellen |
 | `src/` | `anschlussplan.html` → PDF über `node src/render_pdf.js` |
 
-**Vor Ausführung klären:** Leistungsklasse MAP0, Module je Stack, Netzform TN-C-S/TT und Ort der PEN-Aufteilung, Vorsicherung (≤ 63 A für Whole-Home), Aufteilung BACKUP/NON-BACKUP, Vorgaben des Netzbetreibers (Einspeiselimit, Blindleistung), Internetanbindung.
+**Stand Index B (24.11.2026):** TN-C-S, Vorsicherung 35 A, gesamtes Haus am BACKUP-Port (NON-BACKUP frei), 2 Stacks à 3 × LUNA2000-5-E0 (30 kWh), keine Vorgaben des Netzbetreibers, kein Aggregat, kein Zeittarif, LAN eingeplant. Vorhandener Smart Dongle und Smart Power Sensor werden zurückgebaut.
+
+**Noch offen:** Daten des vorhandenen FI vor dem HV (IΔn ≥ 100 mA, Typ A nötig – 30 mA muss versetzt werden), bestehende FusionSolar-Anlage, Großverbraucher für die Überlastbewertung im Inselbetrieb, Abstände Batterie–WR ≤ 10 m.
 
 **Wichtig:** „Seamless switchover“ ist ab Werk deaktiviert. Die N-Leiter von Netz, WR, BACKUP und NON-BACKUP dürfen außerhalb des SmartGuard nicht verbunden sein. Pin-Belegungen und Parameterbezeichnungen stammen aus Huawei-Handbüchern (Ausgaben 2024–2026) und sind vor der Ausführung mit der Handbuch-Ausgabe des Geräts abzugleichen. Die nahtlose Umschaltung mit LUNA2000-S0 bei Huawei bestätigen lassen.
 
